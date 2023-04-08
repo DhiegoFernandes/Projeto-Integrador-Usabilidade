@@ -95,6 +95,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         txtExcluirID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Produtos");
 
         jLabel1.setText("Nome");
 
@@ -270,7 +271,7 @@ public class TelaProdutos extends javax.swing.JFrame {
 
             //validando campos
             if (txtNome.getText().length() < 1) {
-                JOptionPane.showMessageDialog(null, "Preebcha o campo nome!");
+                JOptionPane.showMessageDialog(null, "Preencha o campo nome!");
                 txtNome.requestFocus();
             } else if (txtPreco.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha o campo preco!");
@@ -311,8 +312,12 @@ public class TelaProdutos extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
 
         try {
-
-            int id;
+            
+            if(txtExcluirID.getText().length() <1){
+                JOptionPane.showMessageDialog(null, "Preencha o campo excluir!");
+                txtNome.requestFocus();
+            }else{
+                int id;
             id = Integer.parseInt(txtExcluirID.getText());
 
             ProdutosDAO pDAO = new ProdutosDAO();
@@ -322,7 +327,8 @@ public class TelaProdutos extends javax.swing.JFrame {
 
             //Mensagem de retorno ao usuario
             JOptionPane.showMessageDialog(null, "Produto excluido com sucesso!");
-            
+            }
+    
         } catch (Exception e) {
             System.out.println(e.getMessage());
 

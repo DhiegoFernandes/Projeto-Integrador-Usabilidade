@@ -1,6 +1,6 @@
-drop database PiPizzaria;
-create database PiPizzaria;
-use PiPizzaria;
+drop database digitalmenu;
+create database digitalmenu;
+use digitalmenu;
 
 CREATE TABLE Produto (
 id INTEGER PRIMARY KEY not null auto_increment,
@@ -30,21 +30,32 @@ FOREIGN KEY(id) REFERENCES Produto (id),
 FOREIGN KEY(idPedido) REFERENCES pedido (idPedido)
 );
 
+CREATE TABLE usuario(
+idUsuario INTEGER primary key auto_increment,
+usuario varchar(50),
+acesso varchar(30),
+senha varchar(50)
+);
+
 select * from produto;
 insert into Produto values (default,"Shiitake Fresco",72,"Queijo Mussarela,Shiitake","Pizza"),
 (default,"Quatro Queijos",55,"Queijo Mussarela,Queijo ParmesÃ£o,Queijo Provolone, Queijo Gorgonzola","Pizza"),
 (default,"Frango com Catupiry",40,"Frango desfiado, Queijo Catupiry","Pizza");
 
+insert into usuario values (1, 'Admin', 'admin', 'Admin');
 insert into mesa values (1);
 insert into pedido values (default, default, default, 1);
-insert into carrinho select 1,1,preco from produto where produto.id = 2;
+#insert into carrinho select 1,1,preco from produto where produto.id = 2;
 					   #codpruto/codpedido                         #produto
+                       
 
 select * from carrinho;
 select * from pedido;
 select * from mesa;
 select * from produto;
+select * from usuario;
 describe carrinho;
+describe pedido;
 
 
 
