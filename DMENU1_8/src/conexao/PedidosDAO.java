@@ -105,7 +105,7 @@ public class PedidosDAO {
         }
     }
 
-    public void InserePedido(Pedido pz) {
+    public void InserePedido(Pedido ped) {
 
         Conexao conexao = new Conexao();
         PreparedStatement st = null;
@@ -116,14 +116,12 @@ public class PedidosDAO {
             sql += "INSERT INTO pedido"
                     + "(idPedido, status, precoTotal, idMesa)" //4 VALORES
                     + "VALUES"
-                    + "(?, ?, ?, ?)"; //4 INTERROGAÇOES
+                    + "(default, default, default, ?)"; //4 INTERROGAÇOES
 
             st = conexao.getConexao().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
-            st.setInt(1, pz.getIdPedido());
-            st.setString(2, pz.getStatus());
-            st.setDouble(3, pz.getPrecoTotal());
-            st.setInt(4, pz.getIdMesa());
+
+            st.setInt(1, ped.getIdMesa());
 
             int linhasAfetadas = st.executeUpdate();
 
@@ -131,15 +129,15 @@ public class PedidosDAO {
                 ResultSet rs = st.getGeneratedKeys();
                 if (rs.next()) {
                     int id = rs.getInt(1);
-                    pz.setIdMesa(id);
+                    ped.setIdMesa(id);
                 }
                 rs.close();
             } else {
                 throw new SQLException("Erro inesperado! Nenhuma linha afetada!");
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Pedido não foi criado! verifique se o atendente existe.");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Pedido não foi criado! verifique se a mesa existe.");
             System.out.println(e.getMessage());
         } finally {
             conexao.fechaConexao();

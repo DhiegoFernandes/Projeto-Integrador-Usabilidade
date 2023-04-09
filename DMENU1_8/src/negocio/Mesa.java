@@ -21,6 +21,10 @@ public class Mesa {
     public void setIdMesa(int idMesa) {
         this.idMesa = idMesa;
     }
+    @Override
+    public String toString() {
+        return "Mesa " + idMesa;
+    }
     
     
     

@@ -38,7 +38,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnCriaPedido = new javax.swing.JButton();
         btnProdutos = new javax.swing.JButton();
         btnMesas = new javax.swing.JButton();
-        btnMesas1 = new javax.swing.JButton();
+        btnUsuarios = new javax.swing.JButton();
+        btnPedidos = new javax.swing.JButton();
         mnuBarTelaPrincipal = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuCadastro = new javax.swing.JMenu();
@@ -73,10 +74,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnMesas1.setText("Usuários");
-        btnMesas1.addActionListener(new java.awt.event.ActionListener() {
+        btnUsuarios.setText("Usuários");
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMesas1ActionPerformed(evt);
+                btnUsuariosActionPerformed(evt);
+            }
+        });
+
+        btnPedidos.setText("Pedidos");
+        btnPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPedidosActionPerformed(evt);
             }
         });
 
@@ -124,17 +132,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(btnCriaPedido))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMesas1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addGap(151, 151, 151)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(124, Short.MAX_VALUE)
+                .addComponent(btnCriaPedido)
+                .addGap(120, 120, 120))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,10 +152,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMesas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMesas1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(btnUsuarios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPedidos)
+                .addGap(44, 44, 44)
                 .addComponent(btnCriaPedido)
-                .addGap(89, 89, 89))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(414, 307));
@@ -157,7 +167,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void mnuCadastroDePizzasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCadastroDePizzasActionPerformed
 
         try {
-            new TelaCriaPedido().setVisible(true);
+            new XTelaCriaPedido().setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -178,7 +188,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btnCriaPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriaPedidoActionPerformed
 
         try {
-            new TelaCriaPedido().setVisible(true);
+            new XTelaCriaPedido().setVisible(true);
             
             
         } catch (SQLException ex) {
@@ -199,7 +209,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnMesasActionPerformed
 
-    private void btnMesas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesas1ActionPerformed
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
 
         try {
             new TelaUsuarios().setVisible(true);
@@ -207,14 +217,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }//GEN-LAST:event_btnMesas1ActionPerformed
+    }//GEN-LAST:event_btnUsuariosActionPerformed
+
+    private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
+
+        try {
+            new TelaPedidos().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnPedidosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCriaPedido;
     private javax.swing.JButton btnMesas;
-    private javax.swing.JButton btnMesas1;
+    private javax.swing.JButton btnPedidos;
     private javax.swing.JButton btnProdutos;
+    private javax.swing.JButton btnUsuarios;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu mnuArquivo;

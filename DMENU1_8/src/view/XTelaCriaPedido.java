@@ -13,12 +13,12 @@ import negocio.Pedido;
  *
  * @author Dhiego
  */
-public class TelaCriaPedido extends javax.swing.JFrame {
+public class XTelaCriaPedido extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaCadastroPizza1
      */
-    public TelaCriaPedido() throws SQLException {
+    public XTelaCriaPedido() throws SQLException {
         initComponents();
       
 
@@ -170,7 +170,7 @@ public class TelaCriaPedido extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addComponent(lblIDMesa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtIDmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,7 +179,10 @@ public class TelaCriaPedido extends javax.swing.JFrame {
                 .addGap(91, 91, 91)
                 .addComponent(asasdasda)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(pnlRolagem)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlRolagem, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

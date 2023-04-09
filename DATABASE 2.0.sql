@@ -23,11 +23,11 @@ FOREIGN KEY(idMesa) REFERENCES mesa (idMesa)
 );
 
 CREATE TABLE Carrinho (
-id INTEGER,
+id INTEGER primary key auto_increment,
 idPedido INTEGER,
 preco DECIMAL(5,2),
-FOREIGN KEY(id) REFERENCES Produto (id),
-FOREIGN KEY(idPedido) REFERENCES pedido (idPedido)
+#FOREIGN KEY(id) REFERENCES Produto (id),
+FOREIGN KEY(idPedido) REFERENCES pedido(idPedido)
 );
 
 CREATE TABLE usuario(
@@ -44,10 +44,11 @@ insert into Produto values (default,"Shiitake Fresco",72,"Queijo Mussarela,Shiit
 
 insert into usuario values (1, 'Admin', 'admin', 'Admin');
 insert into mesa values (1);
-insert into pedido values (default, default, default, 1);
-#insert into carrinho select 1,1,preco from produto where produto.id = 2;
-					   #codpruto/codpedido                         #produto
+#insert into pedido values (default, default, default, 1);
+#insert into carrinho select null,1,preco from produto where produto.id = 3;
+					   #codpruto/idpedido                                #produto
                        
+#insert into carrinho select null,1,preco from produto where produto.id = 2;
 
 select * from carrinho;
 select * from pedido;
@@ -56,8 +57,6 @@ select * from produto;
 select * from usuario;
 describe carrinho;
 describe pedido;
-
-
 
 
 DELIMITER //

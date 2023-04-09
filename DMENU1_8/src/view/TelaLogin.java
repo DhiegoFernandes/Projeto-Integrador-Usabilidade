@@ -36,7 +36,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Logar como mesa");
 
@@ -160,7 +160,7 @@ public class TelaLogin extends javax.swing.JFrame {
             try {
                 if (mDAO.checkMesa(mesa)) {
                     JOptionPane.showMessageDialog(null, "Bem-vindo!", "Bem-vindo!", JOptionPane.INFORMATION_MESSAGE);
-                    new TelaCriaPedido().setVisible(true);
+                    new XTelaCriaPedido().setVisible(true);
                 }else{
                     JOptionPane.showMessageDialog(null, "Mesa invalida!");
                 }
@@ -233,7 +233,8 @@ public class TelaLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin().setVisible(true);
+                //new TelaLogin().setVisible(true);
+                new TelaPrincipal().setVisible(true);
             }
         });
     }

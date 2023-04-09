@@ -41,7 +41,6 @@ public class TelaConsultaPedido extends javax.swing.JFrame {
                 pz.getIdMesa(),});
         }
 
-
     }
 
     /**
