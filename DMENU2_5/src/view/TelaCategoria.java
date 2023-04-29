@@ -24,11 +24,11 @@ public class TelaCategoria extends javax.swing.JFrame {
 
         CategoriaDAO cDAO = new CategoriaDAO();
 
-//Gera a lista de mesa localmente, que sera preenchida
+        //Gera a lista de mesa localmente, que sera preenchida
         List<Categoria> listaDeCategorias;
         listaDeCategorias = new ArrayList<>();
 
-//pega (Obtem) a lista de pizzas atraves da mesa
+        //pega (Obtem) a lista de pizzas atraves da mesa
         listaDeCategorias = cDAO.listaTodasAsCategorias();
 
         for (Categoria catLocal : listaDeCategorias) {
@@ -236,6 +236,7 @@ public class TelaCategoria extends javax.swing.JFrame {
                 nomeCategoria = txtNomeCategoria.getText().toLowerCase();//PEGA A CATEGORIA EM MINUSCULO
 
                 cat.setNome(nomeCategoria);//Seta a categoria
+                cat.setStatus("ativado");//##POR PADRÃO CRIA A categoria ATIVADA##
 
                 CategoriaDAO cDAO = new CategoriaDAO();
 
@@ -250,7 +251,7 @@ public class TelaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnAtivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtivarActionPerformed
-   try {
+        try {
 
             if (txtAtivarDesativar.getText().length() < 1) {
                 JOptionPane.showMessageDialog(null, "Preencha o campo alterar!");

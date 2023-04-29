@@ -246,38 +246,45 @@ public class TelaPedidos extends javax.swing.JFrame {
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         MesasDAO mDAO = new MesasDAO();
 
-        try {
-            int mesa;
+        if (cboMesa.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Escolha uma mesa!");
 
-            //fazendo um casting para carpturar o atributo mesa
-            Mesa mes = (Mesa) cboMesa.getSelectedItem();
-
-            //Atribuindo o ID da revenda quando o nome da revenda é selecionado
-            mesa = mes.getIdmesa();
-
+        } else {
             try {
-                if (mDAO.checkMesa(mesa)) {//##VALIDAÇÃO EXTRA## 
-                    Pedido ped = new Pedido();
-                    PedidosDAO pedDAO = new PedidosDAO();
+                int mesa;
 
-                    ped.setId_mesa(mesa);
-                    ped.setStatus("aberto");//####POR PADRÃO INSERE pedido aberto###
+                //fazendo um casting para carpturar o atributo mesa
+                Mesa mes = (Mesa) cboMesa.getSelectedItem();
 
-                    pedDAO.inserePedido(ped);
+                //Atribuindo o ID da revenda quando o nome da revenda é selecionado
+                mesa = mes.getIdmesa();
 
-                    JOptionPane.showMessageDialog(null, "Pedido criado com sucesso!");
+                try {
+                    if (mDAO.checkMesa(mesa)) {//##VALIDAÇÃO EXTRA## 
+                        Pedido ped = new Pedido();
+                        PedidosDAO pedDAO = new PedidosDAO();
 
-                } else {
-                    JOptionPane.showMessageDialog(null, "Mesa invalida!");
+                        ped.setId_mesa(mesa);
+                        ped.setStatus("aberto");//####POR PADRÃO INSERE pedido aberto###
+
+                        pedDAO.inserePedido(ped);
+
+                        JOptionPane.showMessageDialog(null, "Pedido criado com sucesso!");
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Mesa invalida!");
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }
 
-            //limparTelaCadastro();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+                //limparTelaCadastro();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
+
+
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
